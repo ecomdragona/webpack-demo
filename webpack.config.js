@@ -1,10 +1,21 @@
+/*
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
 		index: './src/index.js',
-		print: './src/print.js'
+		print: './src/print.js',
+		another: './src/another-module.js',
+		index: {
+			import: './src/index.js',
+			dependOn: 'shared',
+		},
+		another: {
+			import: './src/another-module.js',
+			dependOn: 'shared',
+		},
+		shared: 'lodash'
 	},
 	devtool: 'inline-source-map',
 	devServer: {
@@ -19,10 +30,26 @@ module.exports = {
 		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
-		publicPath: '/'
+		path: path.resolve(__dirname, 'dist')
 	},
 	optimization: {
-		runtimeChunk: 'single'
+		splitChunks: {
+		  	chunks: 'all',
+		},
 	},
 	mode: 'development'
+};
+*/
+
+const path = require('path');
+
+module.exports = {
+	mode: 'development',
+	entry: {
+		index: './src/index.js',
+	},
+	output: {
+		filename: '[name].bundle.js',
+		path: path.resolve(__dirname, 'dist'),
+	},
 };
