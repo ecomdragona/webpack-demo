@@ -1,1 +1,8 @@
+# gitignore
+# Author: Thalia
+# Alias: Dragon
+# Created by: 05/25/2023
+#
+
+# Ignore folders
 node_modules
